@@ -8,7 +8,9 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from utils import APIException, generate_sitemap
 from admin import setup_admin
+from datastructures import Notifications
 from models import db, User
+from sms import send
 #from models import Person
 
 app = Flask(__name__)
@@ -19,6 +21,8 @@ MIGRATE = Migrate(app, db)
 db.init_app(app)
 CORS(app)
 setup_admin(app)
+
+notification = Notifications()
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
@@ -38,6 +42,12 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@app.route('/process_notifications', methods=['GET'])
+def process_notifications():
+
+    
+    return jsonify(), 200    
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':

@@ -44,14 +44,14 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Events(db.Model):
+class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.int(250), unique=True, nullable=False)
     title = db.Column(db.String(250), unique=False, nullable=False)
     start_date = db.Column(db.int(80), unique=False, nullable=False)
 
     def __repr__(self):
-        return '<User %r>' % self.user_id
+        return '<User %r>' % self.title
 
         #line 54 self.user_id correct?
 

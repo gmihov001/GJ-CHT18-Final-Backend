@@ -1,6 +1,6 @@
 from random import randint
 
-class Queue:
+class Notifications:
     def __init__(self):
         self.current_queue = []
 
