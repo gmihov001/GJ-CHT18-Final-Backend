@@ -46,9 +46,9 @@ class User(db.Model):
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.int(250), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, unique=True, nullable=False)
     title = db.Column(db.String(250), unique=False, nullable=False)
-    start_date = db.Column(db.int(80), unique=False, nullable=False)
+    start_date = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.title
