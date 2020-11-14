@@ -46,7 +46,7 @@ def handle_hello():
 @app.route('/process_notifications', methods=['GET'])
 def process_notifications():
 
-    
+    send(body='Your table is ready', to=phone)
     return jsonify(), 200    
 
 # this only runs if `$ python src/main.py` is executed
